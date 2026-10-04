@@ -1,0 +1,324 @@
+/* ==========================================================================
+   SECURE ONLINE BANKING & FUND TRANSFER SYSTEM
+   Executive Light / Off-White Banking Design System
+   ========================================================================== */
+
+:root {
+  /* ----------------------------------------
+     1. COLOR PALETTE (OFF-WHITE / PEARL / SLATE)
+     ---------------------------------------- */
+  --bg-base: #f4f6fb;
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  --bg-elevated: #ffffff;
+  --bg-subtle: rgba(15, 23, 42, 0.03);
+
+  /* ----------------------------------------
+     2. ACCENTS (ROYAL BLUE / COBALT / SAPPHIRE)
+     ---------------------------------------- */
+  --accent-cyan: #0284c7;
+  --accent-blue: #2563eb;
+  --accent-electric: #1d4ed8;
+  --accent-indigo: #4338ca;
+  --accent-violet: #6366f1;
+  
+  --accent-primary-gradient: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #0284c7 100%);
+  --accent-cyan-gradient: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+  --accent-violet-gradient: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+  /* Executive Metallic Sapphire Debit Card */
+  --accent-card-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 55%, #1e3a8a 100%);
+  --accent-gold-gradient: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+
+  /* ----------------------------------------
+     3. FINANCIAL STATUS TOKENS
+     ---------------------------------------- */
+  --credit-green: #059669;
+  --credit-bg: rgba(16, 185, 129, 0.1);
+  --credit-border: rgba(16, 185, 129, 0.35);
+  --credit-glow: rgba(16, 185, 129, 0.15);
+
+  --debit-red: #e11d48;
+  --debit-bg: rgba(225, 29, 72, 0.1);
+  --debit-border: rgba(225, 29, 72, 0.35);
+  --debit-glow: rgba(225, 29, 72, 0.15);
+
+  --warning-amber: #d97706;
+  --warning-bg: rgba(217, 119, 6, 0.1);
+  --warning-border: rgba(217, 119, 6, 0.35);
+
+  --info-sky: #0284c7;
+  --info-bg: rgba(2, 132, 199, 0.1);
+  --info-border: rgba(2, 132, 199, 0.35);
+
+  /* ----------------------------------------
+     4. TYPOGRAPHY SYSTEM
+     ---------------------------------------- */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --text-white: #0f172a;        /* Deep navy for prominent headings */
+  --text-primary: #1e293b;      /* Slate charcoal for body */
+  --text-secondary: #475569;    /* Supporting text */
+  --text-muted: #64748b;        /* Muted labels */
+  --text-dim: #94a3b8;
+
+  /* ----------------------------------------
+     5. LIGHT GLASSMORPHISM SYSTEM
+     ---------------------------------------- */
+  /* Level 1: Primary Glass (Panels, Sections) */
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-bg-hover: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(226, 232, 240, 0.95);
+  --glass-border-hover: rgba(203, 213, 225, 1);
+  --glass-blur: 20px;
+  --glass-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+
+  /* Level 2: Secondary Glass (Nested Cards, Filter Bars) */
+  --glass-secondary-bg: rgba(248, 250, 252, 0.85);
+  --glass-secondary-border: rgba(226, 232, 240, 0.85);
+  --glass-secondary-blur: 16px;
+  --glass-secondary-shadow: 0 6px 18px rgba(15, 23, 42, 0.03);
+
+  /* Level 3: Elevated Glass (Hovered Cards, Dropdowns) */
+  --glass-elevated-bg: #ffffff;
+  --glass-elevated-border: rgba(226, 232, 240, 1);
+  --glass-elevated-blur: 24px;
+  --glass-shadow-lg: 0 20px 45px rgba(15, 23, 42, 0.08);
+
+  /* Level 4: Modal Glass (Dialogs, Overlays) */
+  --glass-modal-bg: rgba(255, 255, 255, 0.96);
+  --glass-modal-border: rgba(226, 232, 240, 1);
+  --glass-modal-blur: 24px;
+  --glass-modal-shadow: 0 25px 60px rgba(15, 23, 42, 0.16);
+
+  /* ----------------------------------------
+     6. SIZING & TRANSITIONS
+     ---------------------------------------- */
+  --sidebar-width: 270px;
+  --topbar-height: 72px;
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.16s ease;
+  --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   GLOBAL RESET & BASE STYLES
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--bg-base);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Executive Subtle Pearl / Off-White Atmosphere */
+body {
+  position: relative;
+  background-color: var(--bg-base);
+  background-image: 
+    radial-gradient(ellipse 80% 60% at 50% -15%, rgba(37, 99, 235, 0.05) 0%, transparent 60%),
+    radial-gradient(circle 500px at 95% 20%, rgba(2, 132, 199, 0.04) 0%, transparent 70%),
+    radial-gradient(circle 600px at 5% 85%, rgba(99, 102, 241, 0.03) 0%, transparent 75%);
+  background-attachment: fixed;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: -160px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.04) 0%, rgba(2, 132, 199, 0.01) 50%, transparent 75%);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  bottom: -200px;
+  left: -150px;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.03) 0%, rgba(30, 58, 138, 0.01) 60%, transparent 80%);
+  filter: blur(90px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--text-white);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+h1 { font-size: 2.15rem; font-weight: 800; }
+h2 { font-size: 1.65rem; font-weight: 700; }
+h3 { font-size: 1.35rem; font-weight: 600; }
+h4 { font-size: 1.12rem; font-weight: 600; }
+h5 { font-size: 0.98rem; font-weight: 600; }
+h6 { font-size: 0.85rem; font-weight: 600; }
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.55;
+  font-weight: 400;
+}
+
+a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-electric);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+/* ==========================================================================
+   CUSTOM SCROLLBAR
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ==========================================================================
+   LAYOUT STRUCTURE
+   ========================================================================== */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin-left: var(--sidebar-width);
+  transition: margin-left var(--transition-smooth);
+}
+
+.page-container {
+  flex: 1;
+  padding: 2.2rem 2.5rem;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   GLASSMORPHISM CARD CLASSES (LIGHT EXECUTIVE THEME)
+   ========================================================================== */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.glass-panel:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+}
+
+.glass-panel-elevated {
+  background: var(--glass-elevated-bg);
+  backdrop-filter: blur(var(--glass-elevated-blur));
+  -webkit-backdrop-filter: blur(var(--glass-elevated-blur));
+  border: 1px solid var(--glass-elevated-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--glass-shadow-lg);
+}
+
+.glass-panel-secondary {
+  background: var(--glass-secondary-bg);
+  backdrop-filter: blur(var(--glass-secondary-blur));
+  -webkit-backdrop-filter: blur(var(--glass-secondary-blur));
+  border: 1px solid var(--glass-secondary-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--glass-secondary-shadow);
+}
+
+/* Micro-interaction & Keyframe Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.spinner-icon {
+  animation: spin 0.8s linear infinite;
+}

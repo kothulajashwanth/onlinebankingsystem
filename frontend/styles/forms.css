@@ -1,0 +1,341 @@
+/* ==========================================================================
+   BANKING OPERATIONS & FORMS (EXECUTIVE LIGHT THEME)
+   ========================================================================== */
+
+.operation-container {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* ----------------------------------------
+   OPERATION BALANCE SUMMARY BANNER
+   ---------------------------------------- */
+.balance-banner {
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #eff6ff 0%, #f0fdfa 100%);
+  border: 1px solid #bfdbfe;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.06);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+.banner-info-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-blue);
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.banner-balance-val {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-white);
+  letter-spacing: -0.02em;
+}
+
+.banner-account-pill {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  background: #ffffff;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  border: 1px solid #cbd5e1;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+/* ----------------------------------------
+   OPERATION FORM CARD
+   ---------------------------------------- */
+.operation-card {
+  padding: 2.4rem 2.6rem;
+}
+
+.operation-card-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 1.35rem;
+}
+
+.operation-card-header h2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 0.35rem;
+  font-family: var(--font-display);
+}
+
+.operation-card-header p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+/* ----------------------------------------
+   PRESET AMOUNT CHIPS
+   ---------------------------------------- */
+.preset-chips-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+  display: block;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.preset-chips-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.4rem;
+  flex-wrap: wrap;
+}
+
+.preset-chip {
+  padding: 0.5rem 1.15rem;
+  border-radius: var(--radius-full);
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.preset-chip:hover {
+  background: #eff6ff;
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  transform: translateY(-1px);
+}
+
+.preset-chip:active {
+  transform: scale(0.96);
+}
+
+/* ----------------------------------------
+   FUND TRANSFER STEPPER WIZARD
+   ---------------------------------------- */
+.stepper-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.8rem;
+  position: relative;
+}
+
+.stepper-nav::before {
+  content: "";
+  position: absolute;
+  top: 19px;
+  left: 36px;
+  right: 36px;
+  height: 2px;
+  background: #e2e8f0;
+  z-index: 1;
+}
+
+.step-node {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+}
+
+.step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f8fafc;
+  border: 2px solid #cbd5e1;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+}
+
+.step-node.active .step-circle {
+  background: var(--accent-primary-gradient);
+  border-color: var(--accent-blue);
+  color: #fff;
+  box-shadow: 0 0 16px rgba(37, 99, 235, 0.35);
+}
+
+.step-node.completed .step-circle {
+  background: #ecfdf5;
+  border-color: var(--credit-green);
+  color: var(--credit-green);
+}
+
+.step-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+
+.step-node.active .step-title {
+  color: var(--accent-blue);
+  font-weight: 700;
+}
+
+.step-node.completed .step-title {
+  color: var(--credit-green);
+}
+
+/* Transfer Step Panels */
+.transfer-step-panel {
+  display: none;
+}
+
+.transfer-step-panel.active {
+  display: block;
+  animation: fadeIn 0.25s ease-out;
+}
+
+/* Payee Preview Beneficiary Card */
+.payee-preview-box {
+  background: #f0fdfa;
+  border: 1px solid #99f6e4;
+  border-radius: var(--radius-lg);
+  padding: 1.2rem 1.4rem;
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  box-shadow: 0 4px 14px rgba(15, 118, 110, 0.06);
+}
+
+.payee-avatar-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #ccfbf1;
+  color: #0f766e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  border: 1px solid #5eead4;
+}
+
+.payee-details h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 0.2rem;
+}
+
+.payee-details p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Review Step Card */
+.review-summary-container {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.review-amount-callout {
+  text-align: center;
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-lg);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+}
+
+.review-amount-callout .label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.review-amount-callout .val {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--accent-blue);
+  margin-top: 0.35rem;
+  letter-spacing: -0.02em;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.review-field {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.review-field-title {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.review-field-value {
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--text-white);
+}
+
+.step-buttons-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2.2rem;
+  gap: 1rem;
+}
+
+/* ----------------------------------------
+   RESPONSIVE BREAKPOINTS
+   ---------------------------------------- */
+@media (max-width: 640px) {
+  .operation-card {
+    padding: 1.6rem 1.25rem;
+  }
+  .stepper-nav .step-title {
+    display: none;
+  }
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+  .balance-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+}
