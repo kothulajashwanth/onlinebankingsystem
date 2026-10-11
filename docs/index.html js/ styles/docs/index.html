@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMR TC - Secure Digital Banking</title>
+  <meta name="description"
+    content="Secure Online Banking and Fund Transfer System - Production Java & MySQL Banking Application.">
+
+  <!-- Google Fonts: Inter & Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Core & Component Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/auth.css">
+  <link rel="stylesheet" href="styles/dashboard.css">
+  <link rel="stylesheet" href="styles/forms.css">
+  <link rel="stylesheet" href="styles/transactions.css">
+  <link rel="stylesheet" href="styles/profile.css">
+</head>
+
+<body>
+
+  <!-- ======================================================================
+       1. AUTHENTICATION SECTION (LOGIN & REGISTRATION)
+       ====================================================================== -->
+  <div id="auth-wrapper-section" class="auth-wrapper">
+    <div class="auth-card-container">
+
+      <!-- Left Showcase Panel -->
+      <div class="auth-brand-side">
+        <div class="auth-brand-header">
+          <div class="brand-shield-logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 style="color: #fff; font-size: 1.2rem; font-weight: 700;">AEGIS BANK</h3>
+            <span
+              style="font-size: 0.72rem; color: var(--accent-blue); letter-spacing: 0.08em; text-transform: uppercase;">Digital
+              Security Suite</span>
+          </div>
+        </div>
+
+        <div class="auth-brand-body">
+          <h2>Secure Online Banking & Fund Transfer System</h2>
+          <p>Enterprise-grade digital banking platform powered by Java, JDBC, and MySQL database architecture.</p>
+
+          <div class="security-highlights">
+            <div class="sec-item">
+              <div class="sec-item-icon">✓</div>
+              <span>256-Bit End-to-End SSL Encrypted Channels</span>
+            </div>
+            <div class="sec-item">
+              <div class="sec-item-icon">✓</div>
+              <span>Atomic Transaction & Transfer Protection</span>
+            </div>
+            <div class="sec-item">
+              <div class="sec-item-icon">✓</div>
+              <span>Role-Based Identity & Session Shielding</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="auth-brand-footer">
+          <p>College Java Lab Project • Java + JDBC + MySQL Architecture</p>
+        </div>
+      </div>
+
+      <!-- Right Form Panel -->
+      <div class="auth-form-side">
+
+        <!-- A. LOGIN VIEW -->
+        <div id="view-login">
+          <div class="auth-form-header">
+            <h2>Sign In to Portal</h2>
+            <p>Enter your verified credentials to access your banking account</p>
+          </div>
+
+          <form id="login-form">
+            <div class="form-group">
+              <label class="form-label" for="login-username">Username or Customer ID</label>
+              <div class="form-input-wrapper">
+                <span class="form-input-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </span>
+                <input type="text" id="login-username" class="form-input has-left-icon"
+                  placeholder="Enter your username" required autocomplete="username">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="login-password">
+                <span>Account Password</span>
+                <a href="#" id="forgot-pass-link" style="font-size: 0.76rem;">Forgot Password?</a>
+              </label>
+              <div class="form-input-wrapper">
+                <span class="form-input-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                </span>
+                <input type="password" id="login-password" class="form-input has-left-icon has-right-btn"
+                  placeholder="••••••••" required autocomplete="current-password">
+                <button type="button" id="toggle-login-pass" class="input-suffix-btn" title="Toggle visibility">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-meta-row">
+              <label class="checkbox-label">
+                <input type="checkbox" id="remember-me-chk" checked>
+                <span>Remember this terminal</span>
+              </label>
+            </div>
+
+            <button type="submit" id="login-submit-btn" class="btn btn-primary btn-lg" style="width: 100%;">
+              <span>Sign In Securely</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </form>
+
+          <div class="auth-switch-prompt">
+            Don't have an online banking account?
+            <a href="#register" data-route="register" style="font-weight: 600; margin-left: 0.35rem;">Open Account</a>
+          </div>
+
+          <div
+            style="margin-top: 2rem; padding: 0.85rem; border-radius: var(--radius-md); background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.15); text-align: center;">
+            <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0;">
+              🛡️ <strong>Security Notice:</strong> Your security is our priority. 256-bit SSL encrypted connection.
+            </p>
+          </div>
+        </div>
+
+        <!-- B. REGISTRATION VIEW -->
+        <div id="view-register" style="display: none;">
+          <div class="auth-form-header">
+            <h2>Open Digital Account</h2>
+            <p>Complete the application form to open a verified digital account</p>
+          </div>
+
+          <form id="register-form">
+            <!-- 1. Personal & Contact Information -->
+            <div class="reg-section-title">1. Personal & Contact Information</div>
+
+            <div class="form-row-2col">
+              <div class="form-group">
+                <label class="form-label" for="reg-fullname">Full Name *</label>
+                <input type="text" id="reg-fullname" class="form-input" placeholder="e.g. Rajesh Kumar" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="reg-dob">Date of Birth *</label>
+                <input type="date" id="reg-dob" class="form-input" required>
+              </div>
+            </div>
+
+            <div class="form-row-2col">
+              <div class="form-group">
+                <label class="form-label" for="reg-email">Email Address *</label>
+                <input type="email" id="reg-email" class="form-input" placeholder="e.g. rajesh@example.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="reg-phone">Phone Number *</label>
+                <input type="tel" id="reg-phone" class="form-input" placeholder="+91 98765 43210" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-address">Residential Address *</label>
+              <input type="text" id="reg-address" class="form-input" placeholder="Street, City, State, PIN code"
+                required>
+            </div>
+
+            <!-- 2. Account Configuration -->
+            <div class="reg-section-title">2. Account Configuration</div>
+
+            <div class="form-group">
+              <label class="form-label">Select Account Type *</label>
+              <div class="account-type-group">
+                <div class="type-option-card selected" data-type="Savings">
+                  <div class="type-radio-dot"></div>
+                  <div>
+                    <div class="type-info-title">Savings Account</div>
+                    <div class="type-info-desc">4.0% p.a. • Personal banking & limits</div>
+                  </div>
+                </div>
+                <div class="type-option-card" data-type="Current">
+                  <div class="type-radio-dot"></div>
+                  <div>
+                    <div class="type-info-title">Current Account</div>
+                    <div class="type-info-desc">High volume • Business operations</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Security Credentials -->
+            <div class="reg-section-title">3. Security Credentials</div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-username">Choose Username *</label>
+              <input type="text" id="reg-username" class="form-input" placeholder="e.g. rajesh_k" required
+                autocomplete="username">
+            </div>
+
+            <div class="form-row-2col">
+              <div class="form-group">
+                <label class="form-label" for="reg-password">Password (min 6 chars) *</label>
+                <input type="password" id="reg-password" class="form-input" placeholder="••••••••" required
+                  autocomplete="new-password">
+                <div class="pwd-strength-container" id="reg-pwd-strength-container" style="display: none;">
+                  <div class="pwd-strength-bar">
+                    <div class="pwd-strength-segment" id="pwd-bar-1"></div>
+                    <div class="pwd-strength-segment" id="pwd-bar-2"></div>
+                    <div class="pwd-strength-segment" id="pwd-bar-3"></div>
+                    <div class="pwd-strength-segment" id="pwd-bar-4"></div>
+                  </div>
+                  <div class="pwd-strength-label">
+                    <span>Password Strength</span>
+                    <span id="pwd-strength-text" style="font-weight: 600;">Weak</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="reg-confirm-password">Confirm Password *</label>
+                <input type="password" id="reg-confirm-password" class="form-input" placeholder="Re-enter password"
+                  required autocomplete="new-password">
+              </div>
+            </div>
+
+            <button type="submit" id="reg-submit-btn" class="btn btn-primary btn-lg"
+              style="width: 100%; margin-top: 1rem;">
+              <span>Open Digital Account</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </form>
+
+          <div class="auth-switch-prompt">
+            Already have an active account?
+            <a href="#login" data-route="login" style="font-weight: 600; margin-left: 0.35rem;">Back to Login</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ======================================================================
+       2. MAIN AUTHENTICATED APPLICATION LAYOUT
+       ====================================================================== -->
+  <div id="main-app-layout" class="app-container" style="display: none;">
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="sidebar" id="main-sidebar">
+      <div class="sidebar-header">
+        <div class="bank-logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <div class="bank-brand-info">
+          <h2>CMR TC</h2>
+          <span>BANK SYSTEM</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Main Portal</div>
+
+        <a href="#dashboard" class="nav-link active" data-route="dashboard">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+          </span>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="#account" class="nav-link" data-route="account">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>My Account</span>
+        </a>
+
+        <div class="nav-section-title">Transactions</div>
+
+        <a href="#deposit" class="nav-link" data-route="deposit">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+          </span>
+          <span>Deposit</span>
+        </a>
+
+        <a href="#withdraw" class="nav-link" data-route="withdraw">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
+              <polyline points="17 18 23 18 23 12"></polyline>
+            </svg>
+          </span>
+          <span>Withdraw</span>
+        </a>
+
+        <a href="#transfer" class="nav-link" data-route="transfer">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </span>
+          <span>Transfer Funds</span>
+        </a>
+
+        <a href="#transactions" class="nav-link" data-route="transactions">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </span>
+          <span>Transactions</span>
+        </a>
+
+        <div class="nav-section-title">Configuration</div>
+
+        <a href="#profile" class="nav-link" data-route="profile">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Profile</span>
+        </a>
+
+        <a href="#settings" class="nav-link" data-route="settings">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+              </path>
+            </svg>
+          </span>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-mini-card">
+          <div class="user-mini-avatar" id="sidebar-user-avatar">--</div>
+          <div class="user-mini-info">
+            <div class="user-mini-name" id="sidebar-user-name">Loading...</div>
+            <div class="user-mini-acc" id="sidebar-user-acc">•••• ----</div>
+          </div>
+        </div>
+
+        <button type="button" class="logout-nav-btn" id="btn-sidebar-logout">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span>Sign Out Securely</span>
+        </button>
+      </div>
+    </aside>
+
+
+    <!-- MAIN VIEWPORT -->
+    <main class="main-content">
+
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button type="button" class="hamburger-btn" id="hamburger-menu-btn" title="Toggle Navigation">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <div class="page-title-group">
+            <h1 id="topbar-page-title">Dashboard</h1>
+            <p id="topbar-page-desc">Overview of your account and recent activities</p>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="security-badge">
+            <div class="security-pulse"></div>
+            <span>256-Bit SSL Secured</span>
+          </div>
+
+          <div class="system-clock" id="topbar-live-clock">12:00:00 PM</div>
+
+          <!-- Notification Bell -->
+          <div class="icon-btn-wrapper">
+            <button type="button" class="topbar-icon-btn" id="topbar-notification-btn" title="Notifications">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <div class="notification-dot"></div>
+            </button>
+
+            <div class="notification-popover" id="topbar-notification-popover">
+              <div class="popover-header">
+                <h4>System Notifications</h4>
+                <span class="badge badge-info badge-pill" id="notif-badge-pill">Active</span>
+              </div>
+              <div class="popover-list" id="notif-popover-list">
+                <div class="popover-item">
+                  <div class="popover-item-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="popover-item-title">Security Session Active</div>
+                    <div class="popover-item-time">Authenticated </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="#profile" class="user-menu-btn" data-route="profile" title="View Profile">
+            <div class="user-avatar-small" id="topbar-avatar-small">--</div>
+            <span class="user-name-small" id="topbar-name-small">User</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- PAGE CONTAINER FOR APP VIEWS -->
+      <div class="page-container">
+
+        <!-- ==============================================================
+             SCREEN 3 — DASHBOARD VIEW
+             ============================================================== -->
+        <div id="view-dashboard" class="app-page-view">
+
+          <div class="dashboard-hero">
+            <div class="welcome-text">
+              <h2><span id="dash-greeting-time">Good morning</span>, <span id="dash-welcome-name">User</span> 👋</h2>
+              <p>Here's your financial overview and portfolio summary.</p>
+            </div>
+            <div class="dashboard-actions-header">
+              <button type="button" class="btn btn-secondary btn-sm"
+                onclick="window.AegisApp.navigateTo('transactions')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                  <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                  <rect x="6" y="14" width="12" height="8"></rect>
+                </svg>
+                <span>View Statement</span>
+              </button>
+              <button type="button" class="btn btn-primary btn-sm" onclick="window.AegisApp.navigateTo('transfer')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                <span>Quick Transfer</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Top Grid: Premium Card & Monthly Stats -->
+          <div class="dashboard-top-grid">
+
+            <!-- Premium Bank Balance Card -->
+            <div class="bank-card">
+              <div class="card-top-row">
+                <div class="card-bank-brand">
+                  <div class="card-logo-mini">A</div>
+                  <div class="card-brand-name">CMRTC PLATINUM DEBIT</div>
+                </div>
+                <div class="card-status-badge">
+                  <span style="width: 6px; height: 6px; border-radius: 50%; background: #10b981;"></span>
+                  <span id="dash-card-status">Active</span>
+                </div>
+              </div>
+
+              <div class="card-chip-row">
+                <div class="emv-chip"></div>
+                <div class="contactless-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M8.5 16.5a5 5 0 0 1 0-9"></path>
+                    <path d="M12 19a8.5 8.5 0 0 1 0-14"></path>
+                    <path d="M15.5 21.5a12 12 0 0 1 0-19"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="card-balance-section">
+                <div class="balance-label-row">
+                  <span>Available Balance</span>
+                  <button type="button" class="toggle-balance-btn" id="btn-toggle-dash-balance"
+                    title="Hide/Unhide Balance">
+                    <span id="toggle-balance-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+                <div class="card-balance-value" id="dash-card-balance">₹0.00</div>
+              </div>
+
+              <div class="card-footer-row">
+                <div>
+                  <div class="card-acc-number">
+                    <span id="dash-card-acc-num">•••• ----</span>
+                    <button type="button" class="btn-copy-acc" id="btn-copy-dash-acc" title="Copy Full Account Number">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <div style="font-size: 0.72rem; color: rgba(255,255,255,0.6); margin-top: 0.15rem;"
+                    id="dash-card-type">Savings Account</div>
+                </div>
+                <div class="card-holder-info">
+                  <div class="card-holder-title">Card Holder</div>
+                  <div class="card-holder-name" id="dash-card-holder">Account Holder</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Monthly Financial Stats -->
+            <div class="stats-container">
+              <div class="glass-panel stat-card">
+                <div class="stat-icon-wrapper stat-icon-green">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                    <polyline points="17 6 23 6 23 12"></polyline>
+                  </svg>
+                </div>
+                <div class="stat-info">
+                  <div class="stat-label">Total Deposits / Credits</div>
+                  <div class="stat-val" style="color: var(--credit-green);" id="dash-stat-credits">₹0.00</div>
+                  <div class="stat-subtext">Real-time database ledger total</div>
+                </div>
+              </div>
+
+              <div class="glass-panel stat-card">
+                <div class="stat-icon-wrapper stat-icon-red">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
+                    <polyline points="17 18 23 18 23 12"></polyline>
+                  </svg>
+                </div>
+                <div class="stat-info">
+                  <div class="stat-label">Total Withdrawals / Debits</div>
+                  <div class="stat-val" style="color: var(--debit-red);" id="dash-stat-debits">₹0.00</div>
+                  <div class="stat-subtext">Outward transfers and withdrawals</div>
+                </div>
+              </div>
+
+              <div class="glass-panel stat-card">
+                <div class="stat-icon-wrapper stat-icon-blue">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                </div>
+                <div class="stat-info">
+                  <div class="stat-label">Standard Daily Limit</div>
+                  <div class="stat-val" id="dash-stat-limit">₹50,000.00</div>
+                  <div class="stat-subtext">Configured by Core Banking</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="quick-actions-section">
+            <div class="section-header-row">
+              <h3>Quick Banking Operations</h3>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Real-time database operations</span>
+            </div>
+
+            <div class="quick-actions-grid">
+              <div class="glass-panel action-card" id="action-go-deposit">
+                <div class="action-icon-box action-icon-deposit">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                    <polyline points="17 6 23 6 23 12"></polyline>
+                  </svg>
+                </div>
+                <div class="action-card-title">Deposit Money</div>
+                <div class="action-card-desc">Add capital into your account with real database credit.</div>
+              </div>
+
+              <div class="glass-panel action-card" id="action-go-withdraw">
+                <div class="action-icon-box action-icon-withdraw">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
+                    <polyline points="17 18 23 18 23 12"></polyline>
+                  </svg>
+                </div>
+                <div class="action-card-title">Withdraw Funds</div>
+                <div class="action-card-desc">Deduct verified balance with insufficient fund checks.</div>
+              </div>
+
+              <div class="glass-panel action-card featured-transfer" id="action-go-transfer">
+                <div class="action-icon-box action-icon-transfer">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                </div>
+                <div class="action-card-title">Transfer Funds</div>
+                <div class="action-card-desc">Send money with atomic database transaction safety.</div>
+              </div>
+
+              <div class="glass-panel action-card" id="action-go-history">
+                <div class="action-icon-box action-icon-history">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </div>
+                <div class="action-card-title">Transaction History</div>
+                <div class="action-card-desc">Review filtered ledger statements loaded from MySQL.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Transactions -->
+          <div class="glass-panel recent-transactions-card">
+            <div class="section-header-row">
+              <h3>Recent Transactions</h3>
+              <a href="#transactions" data-route="transactions" style="font-size: 0.85rem; font-weight: 600;">View All
+                Transactions →</a>
+            </div>
+
+            <div id="dash-recent-txns-list">
+              <div class="transactions-list-empty">Loading transaction history from MySQL...</div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- ==============================================================
+             SCREEN 7 — MY ACCOUNT SCREEN
+             ============================================================== -->
+        <div id="view-account" class="app-page-view" style="display: none;">
+          <div class="account-grid-layout">
+
+            <div class="glass-panel profile-hero-card">
+              <div class="profile-avatar-large" id="acct-hero-avatar">--</div>
+              <div class="profile-user-name" id="acct-hero-name">Loading...</div>
+              <div class="profile-user-role" id="acct-hero-type">Savings Account</div>
+
+              <div class="profile-quick-stats">
+                <div class="quick-stat-box">
+                  <div class="quick-stat-val" id="acct-hero-balance">₹0.00</div>
+                  <div class="quick-stat-lbl">Available Balance</div>
+                </div>
+                <div class="quick-stat-box">
+                  <div class="quick-stat-val" style="color: var(--credit-green);" id="acct-hero-status">Active</div>
+                  <div class="quick-stat-lbl">Account Status</div>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-goto-edit-profile" style="width: 100%;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                </svg>
+                <span>Edit Profile Particulars</span>
+              </button>
+            </div>
+
+            <div class="glass-panel details-card">
+              <div class="details-card-header">
+                <div>
+                  <h3>Account Information & Records</h3>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Official digital banking
+                    ledger credentials from MySQL</p>
+                </div>
+                <span class="badge badge-info badge-pill">KYC Verified</span>
+              </div>
+
+              <div class="data-grid-2col">
+                <div class="info-display-field">
+                  <div class="info-display-label">Full Customer Name</div>
+                  <div class="info-display-value" id="acct-field-fullname">—</div>
+                </div>
+
+                <div class="info-display-field">
+                  <div class="info-display-label">
+                    <span>Account Number</span>
+                    <span class="lock-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                      </svg> Database Locked</span>
+                  </div>
+                  <div class="info-display-value" style="font-family: var(--font-mono); color: var(--accent-blue);"
+                    id="acct-field-accnumber">—</div>
+                </div>
+
+                <div class="info-display-field">
+                  <div class="info-display-label">
+                    <span>Account Type</span>
+                    <span class="lock-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                      </svg> Read Only</span>
+                  </div>
+                  <div class="info-display-value" id="acct-field-acctype">—</div>
+                </div>
+
+                <div class="info-display-field">
+                  <div class="info-display-label">
+                    <span>Account Status</span>
+                    <span class="lock-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                      </svg> Database Managed</span>
+                  </div>
+                  <div class="info-display-value" style="color: var(--credit-green);" id="acct-field-accstatus">—</div>
+                </div>
+
+                <div class="info-display-field">
+                  <div class="info-display-label">Registered Email</div>
+                  <div class="info-display-value" id="acct-field-email">—</div>
+                </div>
+
+                <div class="info-display-field">
+                  <div class="info-display-label">Registered Phone</div>
+                  <div class="info-display-value" id="acct-field-phone">—</div>
+                </div>
+
+                <div class="info-display-field">
+                  <div class="info-display-label">Date of Birth</div>
+                  <div class="info-display-value" id="acct-field-dob">—</div>
+                </div>
+
+                <div class="info-display-field">
+                  <div class="info-display-label">
+                    <span>Available Balance</span>
+                    <span class="lock-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                      </svg> Core Banking Value</span>
+                  </div>
+                  <div class="info-display-value"
+                    style="font-family: var(--font-display); font-size: 1.15rem; color: #fff;" id="acct-field-balance">
+                    ₹0.00</div>
+                </div>
+
+                <div class="info-display-field" style="grid-column: span 2;">
+                  <div class="info-display-label">Residential Address</div>
+                  <div class="info-display-value" id="acct-field-address">—</div>
+                </div>
+
+                <div class="info-display-field">
+                  <div class="info-display-label">Branch IFSC Code</div>
+                  <div class="info-display-value" style="font-family: var(--font-mono);" id="acct-field-ifsc">
+                    AEGB0004582</div>
+                </div>
+
+                <div class="info-display-field">
+                  <div class="info-display-label">Branch Location</div>
+                  <div class="info-display-value" id="acct-field-branch">Tech Park Main Branch, Bengaluru</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ==============================================================
+             SCREEN 8 — DEPOSIT SCREEN
+             ============================================================== -->
+        <div id="view-deposit" class="app-page-view" style="display: none;">
+          <div class="operation-container">
+
+            <div class="balance-banner">
+              <div>
+                <div class="banner-info-label">Current Available Balance</div>
+                <div class="banner-balance-val" id="deposit-current-balance">₹0.00</div>
+              </div>
+              <div class="banner-account-pill" id="deposit-acc-pill">•••• ----</div>
+            </div>
+
+            <div class="glass-panel operation-card">
+              <div class="operation-card-header">
+                <h2>Deposit Capital</h2>
+                <p>Deposit funds into your account with real database persistence</p>
+              </div>
+
+              <form id="deposit-form">
+                <span class="preset-chips-label">Quick Amount Shortcuts:</span>
+                <div class="preset-chips-row">
+                  <button type="button" class="preset-chip preset-deposit-chip" data-val="1000">+₹1,000</button>
+                  <button type="button" class="preset-chip preset-deposit-chip" data-val="5000">+₹5,000</button>
+                  <button type="button" class="preset-chip preset-deposit-chip" data-val="10000">+₹10,000</button>
+                  <button type="button" class="preset-chip preset-deposit-chip" data-val="25000">+₹25,000</button>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="deposit-amount">Deposit Amount (₹) *</label>
+                  <div class="form-input-wrapper">
+                    <span class="form-input-icon">₹</span>
+                    <input type="number" id="deposit-amount" class="form-input has-left-icon"
+                      placeholder="Enter amount to deposit" min="1" step="0.01" required>
+                  </div>
+                  <span class="form-helper">Funds are credited directly to your MySQL account balance.</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="deposit-description">Deposit Remarks / Reference</label>
+                  <input type="text" id="deposit-description" class="form-input"
+                    placeholder="e.g. Salary, cash deposit, project allowance">
+                </div>
+
+                <button type="submit" id="deposit-submit-btn" class="btn btn-primary btn-lg"
+                  style="width: 100%; margin-top: 1rem;">
+                  <span>Proceed to Deposit</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ==============================================================
+             SCREEN 9 — WITHDRAW SCREEN
+             ============================================================== -->
+        <div id="view-withdraw" class="app-page-view" style="display: none;">
+          <div class="operation-container">
+
+            <div class="balance-banner">
+              <div>
+                <div class="banner-info-label">Current Available Balance</div>
+                <div class="banner-balance-val" id="withdraw-current-balance">₹0.00</div>
+              </div>
+              <div class="banner-account-pill" id="withdraw-acc-pill">•••• ----</div>
+            </div>
+
+            <div class="glass-panel operation-card">
+              <div class="operation-card-header">
+                <h2>Cash Withdrawal</h2>
+                <p>Withdraw funds with backend balance verification and audit ledger logging</p>
+              </div>
+
+              <form id="withdraw-form">
+                <span class="preset-chips-label">Quick Withdrawal Amounts:</span>
+                <div class="preset-chips-row">
+                  <button type="button" class="preset-chip preset-withdraw-chip" data-val="500">₹500</button>
+                  <button type="button" class="preset-chip preset-withdraw-chip" data-val="1000">₹1,000</button>
+                  <button type="button" class="preset-chip preset-withdraw-chip" data-val="2000">₹2,000</button>
+                  <button type="button" class="preset-chip preset-withdraw-chip" data-val="5000">₹5,000</button>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="withdraw-amount">Withdrawal Amount (₹) *</label>
+                  <div class="form-input-wrapper">
+                    <span class="form-input-icon">₹</span>
+                    <input type="number" id="withdraw-amount" class="form-input has-left-icon"
+                      placeholder="Enter amount to withdraw" min="1" step="0.01" required>
+                  </div>
+                  <span class="form-helper">Withdrawal must not exceed available database ledger balance.</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="withdraw-description">Withdrawal Purpose / Notes</label>
+                  <input type="text" id="withdraw-description" class="form-input"
+                    placeholder="e.g. ATM Cash withdrawal, travel expenses">
+                </div>
+
+                <button type="submit" id="withdraw-submit-btn" class="btn btn-primary btn-lg"
+                  style="width: 100%; margin-top: 1rem;">
+                  <span>Proceed to Withdraw</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ==============================================================
+             SCREEN 10 — FUND TRANSFER SCREEN (MOST IMPORTANT SCREEN)
+             ============================================================== -->
+        <div id="view-transfer" class="app-page-view" style="display: none;">
+          <div class="operation-container">
+
+            <div class="balance-banner">
+              <div>
+                <div class="banner-info-label">Available Source Balance</div>
+                <div class="banner-balance-val" id="transfer-current-balance">₹0.00</div>
+              </div>
+              <div class="banner-account-pill" id="transfer-acc-pill">•••• ----</div>
+            </div>
+
+            <div class="stepper-nav">
+              <div class="step-node active" data-step="1">
+                <div class="step-circle">1</div>
+                <div class="step-title">Beneficiary</div>
+              </div>
+              <div class="step-node" data-step="2">
+                <div class="step-circle">2</div>
+                <div class="step-title">Amount</div>
+              </div>
+              <div class="step-node" data-step="3">
+                <div class="step-circle">3</div>
+                <div class="step-title">Purpose</div>
+              </div>
+              <div class="step-node" data-step="4">
+                <div class="step-circle">4</div>
+                <div class="step-title">Review</div>
+              </div>
+            </div>
+
+            <div class="glass-panel operation-card">
+
+              <!-- STEP 1: RECEIVER ACCOUNT NUMBER -->
+              <div class="transfer-step-panel active" data-step-panel="1">
+                <div class="operation-card-header">
+                  <h2>Step 1: Receiver Account Number</h2>
+                  <p>Specify the destination account. The system validates the beneficiary against the MySQL database.
+                  </p>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="transfer-receiver-input">Receiver Account Number *</label>
+                  <div class="form-input-wrapper">
+                    <span class="form-input-icon">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                        <line x1="1" y1="10" x2="23" y2="10"></line>
+                      </svg>
+                    </span>
+                    <input type="text" id="transfer-receiver-input" class="form-input has-left-icon"
+                      placeholder="Enter recipient 12-digit account number" autocomplete="off">
+                  </div>
+                  <span class="form-helper">The destination account must exist in the database.</span>
+                </div>
+
+                <!-- Payee Lookup Feedback Box -->
+                <div class="payee-preview-box" id="transfer-payee-preview" style="display: none;">
+                  <div class="payee-avatar-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                  </div>
+                  <div class="payee-details">
+                    <h4 id="transfer-payee-name">Verifying Beneficiary...</h4>
+                    <p id="transfer-payee-bank">Checking database records</p>
+                  </div>
+                </div>
+
+                <div class="step-buttons-row">
+                  <div></div>
+                  <button type="button" class="btn btn-primary" id="step-1-next">
+                    <span>Continue to Amount</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- STEP 2: AMOUNT -->
+              <div class="transfer-step-panel" data-step-panel="2">
+                <div class="operation-card-header">
+                  <h2>Step 2: Transfer Amount</h2>
+                  <p>Input the remittance sum you wish to transfer.</p>
+                </div>
+
+                <span class="preset-chips-label">Frequent Transfer Amounts:</span>
+                <div class="preset-chips-row">
+                  <button type="button" class="preset-chip preset-transfer-chip" data-val="500">₹500</button>
+                  <button type="button" class="preset-chip preset-transfer-chip" data-val="1000">₹1,000</button>
+                  <button type="button" class="preset-chip preset-transfer-chip" data-val="5000">₹5,000</button>
+                  <button type="button" class="preset-chip preset-transfer-chip" data-val="10000">₹10,000</button>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="transfer-amount-input">Amount to Send (₹) *</label>
+                  <div class="form-input-wrapper">
+                    <span class="form-input-icon">₹</span>
+                    <input type="number" id="transfer-amount-input" class="form-input has-left-icon"
+                      placeholder="Enter amount" min="1" step="0.01" required>
+                  </div>
+                  <span class="form-helper">Atomic transfer execution guarantees zero fund loss.</span>
+                </div>
+
+                <div class="step-buttons-row">
+                  <button type="button" class="btn btn-secondary" id="step-2-prev">Back</button>
+                  <button type="button" class="btn btn-primary" id="step-2-next">
+                    <span>Continue to Description</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- STEP 3: TRANSFER DESCRIPTION -->
+              <div class="transfer-step-panel" data-step-panel="3">
+                <div class="operation-card-header">
+                  <h2>Step 3: Transfer Description & Purpose</h2>
+                  <p>State the nature or memo for this digital transfer transaction.</p>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="transfer-desc-input">Purpose / Narrative Memo *</label>
+                  <input type="text" id="transfer-desc-input" class="form-input"
+                    placeholder="e.g. College expenses, book purchase" value="College expenses">
+                  <span class="form-helper">This narrative will appear on both sender and beneficiary statements.</span>
+                </div>
+
+                <div class="step-buttons-row">
+                  <button type="button" class="btn btn-secondary" id="step-3-prev">Back</button>
+                  <button type="button" class="btn btn-primary" id="step-3-next">
+                    <span>Review Transfer Order</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- STEP 4: REVIEW TRANSFER -->
+              <div class="transfer-step-panel" data-step-panel="4">
+                <div class="operation-card-header">
+                  <h2>Step 4: Review Transfer Order</h2>
+                  <p>Please double check the transaction parameters before final confirmation.</p>
+                </div>
+
+                <div class="review-summary-container">
+                  <div class="review-amount-callout">
+                    <div class="label">Total Amount to Deduct</div>
+                    <div class="val" id="rev-callout-amt">₹0.00</div>
+                  </div>
+
+                  <div class="review-grid">
+                    <div class="review-field">
+                      <div class="review-field-title">From Account:</div>
+                      <div class="review-field-value" id="rev-from-user">—</div>
+                    </div>
+
+                    <div class="review-field">
+                      <div class="review-field-title">To Beneficiary:</div>
+                      <div class="review-field-value" id="rev-to-receiver">—</div>
+                    </div>
+
+                    <div class="review-field">
+                      <div class="review-field-title">Transfer Sum:</div>
+                      <div class="review-field-value" id="rev-amount-val" style="color: var(--accent-blue);">₹0.00</div>
+                    </div>
+
+                    <div class="review-field">
+                      <div class="review-field-title">Remittance Purpose:</div>
+                      <div class="review-field-value" id="rev-desc-val">—</div>
+                    </div>
+
+                    <div class="review-field">
+                      <div class="review-field-title">Service Charge:</div>
+                      <div class="review-field-value" style="color: var(--credit-green);">₹0.00 (Zero Fee)</div>
+                    </div>
+
+                    <div class="review-field">
+                      <div class="review-field-title">Clearing Mode:</div>
+                      <div class="review-field-value">Instant Atomic JDBC Transaction</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-buttons-row">
+                  <button type="button" class="btn btn-secondary" id="step-4-prev">Edit Details</button>
+                  <button type="button" class="btn btn-primary btn-lg" id="step-4-confirm-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <span>Confirm Transfer</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ==============================================================
+             SCREEN 11 — TRANSACTION HISTORY
+             ============================================================== -->
+        <div id="view-transactions" class="app-page-view" style="display: none;">
+          <div class="glass-panel transactions-card">
+
+            <div class="txn-toolbar">
+              <div class="txn-toolbar-top">
+                <div class="txn-search-wrapper">
+                  <div class="form-input-wrapper">
+                    <span class="form-input-icon">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      </svg>
+                    </span>
+                    <input type="text" id="txn-search-input" class="form-input has-left-icon"
+                      placeholder="Search by description, Txn ID, party name...">
+                  </div>
+                </div>
+
+                <div class="txn-toolbar-actions">
+                  <div class="sort-select-wrapper">
+                    <select id="txn-sort-select">
+                      <option value="NEWEST">Sort: Newest First</option>
+                      <option value="OLDEST">Sort: Oldest First</option>
+                      <option value="AMOUNT_HIGH">Sort: Highest Amount</option>
+                      <option value="AMOUNT_LOW">Sort: Lowest Amount</option>
+                    </select>
+                  </div>
+
+                  <button type="button" class="btn btn-secondary btn-sm" id="btn-export-statement">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <span>Export Statement</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Filter Pills -->
+              <div class="txn-toolbar-filters">
+                <div class="type-filter-pills">
+                  <button type="button" class="filter-pill active" data-type="ALL">All Types</button>
+                  <button type="button" class="filter-pill" data-type="DEPOSIT">Deposits</button>
+                  <button type="button" class="filter-pill" data-type="WITHDRAWAL">Withdrawals</button>
+                  <button type="button" class="filter-pill" data-type="TRANSFER_SENT">Transfers Sent</button>
+                  <button type="button" class="filter-pill" data-type="TRANSFER_RECEIVED">Transfers Received</button>
+                </div>
+
+                <div id="txn-count-summary" style="font-size: 0.8rem; color: var(--text-muted);">
+                  Loading records...
+                </div>
+              </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-responsive-container">
+              <table class="banking-table">
+                <thead>
+                  <tr>
+                    <th>Transaction ID</th>
+                    <th>Date & Time</th>
+                    <th>Type</th>
+                    <th>Sender</th>
+                    <th>Receiver</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="txn-table-body">
+                  <!-- Populated dynamically from MySQL -->
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-footer-bar">
+              <div>💡 <em>Click any row to open the complete digital E-Receipt breakdown.</em></div>
+              <div>End of Statement Audit Trail</div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ==============================================================
+             SCREEN 12 — PROFILE
+             ============================================================== -->
+        <div id="view-profile" class="app-page-view" style="display: none;">
+          <div class="account-grid-layout">
+
+            <div class="glass-panel profile-hero-card">
+              <div class="profile-avatar-large" id="profile-avatar-initials">--</div>
+              <div class="profile-user-name" id="profile-hero-fullname">Loading...</div>
+              <div class="profile-user-role" id="profile-hero-role">Member</div>
+
+              <div style="margin: 1.5rem 0; width: 100%;">
+                <div style="font-size: 0.76rem; color: var(--text-muted); margin-bottom: 0.35rem;">Customer Security
+                  Status</div>
+                <span class="badge badge-success badge-pill" style="padding: 0.4rem 0.9rem;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  Full Identity Verified
+                </span>
+              </div>
+            </div>
+
+            <div class="glass-panel details-card">
+              <div class="details-card-header">
+                <div>
+                  <h3>Edit Profile Details</h3>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Modify customer contact
+                    details saved in MySQL</p>
+                </div>
+              </div>
+
+              <form id="profile-edit-form">
+                <div class="data-grid-2col">
+                  <div class="form-group">
+                    <label class="form-label" for="profile-input-fullname">Full Legal Name *</label>
+                    <input type="text" id="profile-input-fullname" class="form-input" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="profile-input-email">Email Address *</label>
+                    <input type="email" id="profile-input-email" class="form-input" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="profile-input-phone">Phone Number *</label>
+                    <input type="tel" id="profile-input-phone" class="form-input" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="profile-input-username">Username (Permanent)</label>
+                    <input type="text" id="profile-input-username" class="form-input" readonly>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="profile-input-accnumber">Account Number (Core Banking)</label>
+                    <input type="text" id="profile-input-accnumber" class="form-input" readonly>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="profile-input-acctype">Account Classification</label>
+                    <input type="text" id="profile-input-acctype" class="form-input" readonly>
+                  </div>
+
+                  <div class="form-group" style="grid-column: span 2;">
+                    <label class="form-label" for="profile-input-address">Communication Address *</label>
+                    <input type="text" id="profile-input-address" class="form-input" required>
+                  </div>
+                </div>
+
+                <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
+                  <button type="submit" id="profile-save-btn" class="btn btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                      <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                      <polyline points="7 3 7 8 15 8"></polyline>
+                    </svg>
+                    <span>Save Profile Changes</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ==============================================================
+             SCREEN 13 — SETTINGS
+             ============================================================== -->
+        <div id="view-settings" class="app-page-view" style="display: none;">
+          <div class="operation-container">
+
+            <div class="glass-panel operation-card">
+
+              <div class="settings-section-block">
+                <div class="settings-section-title">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                  </svg>
+                  <span>Notification Preferences</span>
+                </div>
+
+                <div class="toggle-setting-row">
+                  <div class="toggle-setting-info">
+                    <h4>Instant Email Transaction Receipts</h4>
+                    <p>Receive immediate confirmation when debits or credits occur.</p>
+                  </div>
+                  <label class="switch-control">
+                    <input type="checkbox" class="settings-pref-toggle" data-pref-name="Email Alerts" checked>
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <div class="toggle-setting-row">
+                  <div class="toggle-setting-info">
+                    <h4>SMS OTP & Security Alerts</h4>
+                    <p>Receive SMS codes for multi-factor authorization and external logins.</p>
+                  </div>
+                  <label class="switch-control">
+                    <input type="checkbox" class="settings-pref-toggle" data-pref-name="SMS OTP" checked>
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <div class="toggle-setting-row">
+                  <div class="toggle-setting-info">
+                    <h4>Weekly Ledger Digest</h4>
+                    <p>Summary of net deposits, outflows, and account balance changes.</p>
+                  </div>
+                  <label class="switch-control">
+                    <input type="checkbox" class="settings-pref-toggle" data-pref-name="Weekly Digest">
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="settings-section-block">
+                <div class="settings-section-title">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                  <span>Security Preferences</span>
+                </div>
+
+                <div class="toggle-setting-row">
+                  <div class="toggle-setting-info">
+                    <h4>Two-Factor Authentication (2FA)</h4>
+                    <p>Enforce secondary verification token for fund transfers exceeding ₹10,000.</p>
+                  </div>
+                  <label class="switch-control">
+                    <input type="checkbox" class="settings-pref-toggle" data-pref-name="2FA Verification" checked>
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <div class="toggle-setting-row">
+                  <div class="toggle-setting-info">
+                    <h4>Auto-Logout Inactivity Timer</h4>
+                    <p>Automatically lock workspace after 30 minutes of idle time.</p>
+                  </div>
+                  <label class="switch-control">
+                    <input type="checkbox" class="settings-pref-toggle" data-pref-name="Auto-Logout" checked>
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Change Password -->
+              <div class="settings-section-block">
+                <div class="settings-section-title">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 2l-2 2m-6.5 6.5l3.5 3.5"></path>
+                    <circle cx="7.5" cy="16.5" r="5.5"></circle>
+                  </svg>
+                  <span>Change Password</span>
+                </div>
+
+                <form id="change-password-form">
+                  <div class="form-group">
+                    <label class="form-label" for="pwd-current">Current Password</label>
+                    <input type="password" id="pwd-current" class="form-input" placeholder="••••••••" required>
+                  </div>
+
+                  <div class="form-row-2col">
+                    <div class="form-group">
+                      <label class="form-label" for="pwd-new">New Password (min 6 chars)</label>
+                      <input type="password" id="pwd-new" class="form-input" placeholder="••••••••" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="pwd-confirm">Confirm New Password</label>
+                      <input type="password" id="pwd-confirm" class="form-input" placeholder="••••••••" required>
+                    </div>
+                  </div>
+
+                  <button type="submit" id="pwd-submit-btn" class="btn btn-secondary" style="margin-top: 0.5rem;">Update
+                    Password</button>
+                </form>
+              </div>
+
+              <!-- Session Controls -->
+              <div class="settings-section-block">
+                <div class="settings-section-title" style="color: #e11d48;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+                    <line x1="12" y1="2" x2="12" y2="12"></line>
+                  </svg>
+                  <span>Session Controls</span>
+                </div>
+
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                  Manage active connections or revoke authentication sessions.
+                </p>
+
+                <div style="display: flex; gap: 0.85rem; flex-wrap: wrap;">
+                  <button type="button" class="btn btn-secondary btn-sm" id="btn-terminate-sessions">Terminate Other
+                    Sessions</button>
+                  <button type="button" class="btn btn-danger btn-sm"
+                    onclick="document.getElementById('btn-sidebar-logout').click()">Sign Out This Terminal</button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+
+  <!-- DIALOGS & NOTIFICATION CONTAINERS -->
+  <div class="modal-overlay" id="app-modal-overlay">
+    <div class="modal-dialog" id="app-modal-dialog"></div>
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
+
+
+  <!-- JAVASCRIPT REAL CLIENT SCRIPTS (ZERO MOCK DATA) -->
+  <script src="js/api.js"></script>
+  <script src="js/components/toast.js"></script>
+  <script src="js/components/modal.js"></script>
+
+  <!-- Screen Controllers -->
+  <script src="js/pages/auth.js"></script>
+  <script src="js/pages/dashboard.js"></script>
+  <script src="js/pages/account.js"></script>
+  <script src="js/pages/deposit.js"></script>
+  <script src="js/pages/withdraw.js"></script>
+  <script src="js/pages/transfer.js"></script>
+  <script src="js/pages/transactions.js"></script>
+  <script src="js/pages/profile.js"></script>
+  <script src="js/pages/settings.js"></script>
+
+  <!-- Main Router & App Coordinator -->
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>
